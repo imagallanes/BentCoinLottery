@@ -10,16 +10,21 @@
 library(stats)
 
 # Small edit! from class 1!
+# 10 is the number of coin tosses
+num_of_coin_tosses<- 10
+heads<- 1
+tails<-0
+num_of_successive_coin_tosses<-100
 
-arr <- array(0,10)
-for (i in 1:10){
-  arr[i] <- if (runif(1) < 0.1) 1 else 0
+lotto_tix <- array(0,num_of_coin_tosses)
+for (i in 1:num_of_coin_tosses){
+  lotto_tix[i] <- if (runif(heads) < 0.1) heads else tails
 }
 
-for (j in 1:100){
-  arr <- array(0,10)
-  for (i in 1:10){
-    arr[i] <- if (runif(1) < 0.1) 1 else 0
+for (j in 1:num_of_successive_coin_tosses){
+  lotto_tix <- array(0,num_of_coin_tosses)
+  for (i in 1:num_of_coin_tosses){
+    lotto_tix[i] <- if (runif(heads) < 0.1) heads else tails
   }
-  print(arr)
+  print(lotto_tix)
 }
